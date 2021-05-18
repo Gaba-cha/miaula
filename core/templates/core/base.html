@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <!-- los tag de block permiten definir libremente contenido y reciclar en otros templates-->
+</head>
+<body>
+    <nav>
+        <a href="{% url 'inicio' %}">inicio</a>  <!-- usando el tag url indicas a django que debe renderizar la vista asignada por el nombre 'inicio'-->
+        <a href="">docente</a>
+        <a href="">alumno</a>
+        <a href="">curso</a>
+    </nav>
+
+    {% block contenido %}
+
+    {% endblock %}
+</body>
+</html>
