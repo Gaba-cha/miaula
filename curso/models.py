@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from core.models import User
 # Create your models here.
 
@@ -9,7 +10,7 @@ class Curso(models.Model):
     nombre= models.CharField(max_length=50)
     enlace= models.URLField(blank=True, null=True)
     docente= models.OneToOneField(
-        User,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
 

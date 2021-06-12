@@ -1,0 +1,25 @@
+
+
+{% extends 'core/base.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block contenido %} <!-- este contenido es el que aparecera en el segmento con el mismo nombre 'contenido' -->
+<form action="" method="post">{% csrf_token %}
+    <h3>Iniciar sesión</h3>
+    {% if form.non_field_errors %}
+      <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
+    {% endif %}
+    <p>
+      <input type="text" name="username" autofocus maxlength="254" required
+        id="id_username" class="form-control" placeholder="Nombre de usuario"/>
+    </p>
+    <p>
+      <input type="password" name="password" required
+        id="id_password" class="form-control" placeholder="Contraseña"/>
+    </p>
+    <p><input type="submit" class="btn btn-primary btn-block" value="Acceder"></p>
+</form>
+{% endblock %}

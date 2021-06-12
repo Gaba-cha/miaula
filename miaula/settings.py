@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -128,3 +129,7 @@ STATIC_URL = '/static/'
 MEDIA_ROOT= '/media/'
 
 AUTH_USER_MODEL = 'core.User'
+
+LOGIN_REDIRECT_URL='inicio'
+
+LOGOUT_REDIRECT_URL='inicio'
