@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+Crear clase
+{% endblock %}
+
+{% block contenido %} <!-- este contenido es el que aparecera en el segmento con el mismo nombre 'contenido' -->
+<form method="POST">
+    <!-- Security token by Django -->
+    {% csrf_token %}
+    Estas segurit@?
+    <input type="submit" value="Yes" />
+    <a href="{% url 'curso' %}">Cancel </a>
+</form>
+{% endblock %}

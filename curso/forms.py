@@ -1,7 +1,8 @@
 from django import forms
 from .models import Curso, Clase
 
-class CrearClaseForm(forms.ModelForm):
+class ClaseForm(forms.ModelForm):
     class Meta:
         model=Clase
-        exclude=['curso',]
+        fields='__all__'
+        #exclude=['curso',]

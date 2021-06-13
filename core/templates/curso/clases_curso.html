@@ -20,6 +20,10 @@ Clases:
     <h2>{{ clase.titulo }}</h2>
     <p>{{clase.descripcion}}</p>
     <p>{{clase.updated}}</p>
+
+    <a href="{% url 'editar_clase' clase.IdClase %}">Editar clase</a>
+    <a href="{% url 'eliminar_clase' clase.IdClase %}">Eliminar clase</a>
+
 {% endfor %}
 
 {% endblock %}
