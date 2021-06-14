@@ -7,37 +7,156 @@ inicio
 {% endblock %}
 
 {% block contenido %} <!-- este contenido es el que aparecera en el segmento con el mismo nombre 'contenido' -->
-<body id="page-top">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-        <div class="container px-4 px-lg-5">
-         <a class="navbar-brand" id="#page-top" href="{% url 'inicio' %}">Aula Virtual</a>
-         <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-         <div class="collapse navbar-collapse" id="navbarResponsive">
-           <ul class="navbar-nav ms-auto my-2 my-lg-0">
-           {% if user.is_authenticated %}
-           <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">Inicio</a></li>  <!-- usando el tag url indicas a django que debe renderizar la vista asignada por el nombre 'inicio'-->
-           <li class="nav-item"><a class="nav-link" href="{% url 'curso' %}">Clases</a></li>
-           <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Cerrar sesion</a></li>
-            {% else %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Inicia sesion</a></li>
-
-            {% endif %}
-           </ul>
-         </div>
-        </div>
-    </nav>
-    <header class="masthead">
-        <div class="container px-4 px-lg-5 h-100">
-            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                <div class="col-lg-8 align-self-end">
-                    <h1 class="text-white font-weight-bold">Bienvenidos a nuestra Aula Virtual</h1>
-                    <hr class="divider" />
+<section id="slider-container" class="slider-area three"> 
+    <div class="slider-owl owl-theme owl-carousel"> 
+        <!-- Start Slingle Slide -->
+        <div class="single-slide item" style="background-image: url(img/slider/slider3.jpg)">
+            <!-- Start Slider Content -->
+            <div class="slider-content-area">  
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7"> 
+                            <div class="slide-content-wrapper">
+                                <div class="slide-content">
+                                    <h3>EDUCATION MAKES </h3>
+                                    <h2>PROPER HUMANITY </h2>
+                                    <p>I must explain to you how all this mistaken idea of denouncing pleasure and prsing pain was born and I will give you a complete account of the system  </p>
+                                    <a class="default-btn" href="about.html">Learn more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="slider-img">
+                                <img src="{% static 'img/slider/home.png' %}" alt="slider">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-8 align-self-baseline">
-                    <p class="text-white-75 mb-5">Plataforma desarrollada para un óptimo aprendizaje de nuestros alumnos!</p>
-                    <a class="btn btn-primary btn-xl" href="{% url 'login' %}">Ingresar</a>
+            </div>
+            <!-- Start Slider Content -->
+        </div>
+        <!-- End Slingle Slide -->
+        <!-- Start Slingle Slide -->
+        <div class="single-slide item" style="background-image: url(img/slider/slider2.jpg)">
+            <!-- Start Slider Content -->
+            <div class="slider-content-area">   
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7"> 
+                            <div class="slide-content-wrapper">
+                                <div class="slide-content">
+                                    <h3>EDUCATION MAKES </h3>
+                                    <h2>PROPER HUMANITY </h2>
+                                    <p>I must explain to you how all this mistaken idea of denouncing pleasure and prsing pain was born and I will give you a complete account of the system  </p>
+                                    <a class="default-btn" href="about.html">Learn more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="slider-img">
+                                <img src="/static/img/slider/slider3.jpg" alt="slider">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Slider Content -->
+        </div>
+        <!-- End Slingle Slide -->
+        <!-- Start Slingle Slide -->
+        <div class="single-slide item" style="background-image: url(/static/img/slider/home.png)">
+            <!-- Start Slider Content -->
+            <div class="slider-content-area">  
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7"> 
+                            <div class="slide-content-wrapper">
+                                <div class="slide-content">
+                                    <h3>EDUCATION MAKES </h3>
+                                    <h2>PROPER HUMANITY </h2>
+                                    <p>I must explain to you how all this mistaken idea of denouncing pleasure and prsing pain was born and I will give you a complete account of the system  </p>
+                                    <a class="default-btn" href="about.html">Learn more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="slider-img">
+                                <img src="img/slider/home.png" alt="slider">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Slider Content -->
+        </div>
+        <!-- End Slingle Slide -->								
+    </div>
+</section>
+<!-- Footer Start -->
+<footer class="footer-area">
+    <div class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-widget pr-60">
+                        <div class="footer-logo pb-25">
+                            <a href="index.html"><img src="{% static 'img/logo/footer-logo.png' %}" alt="eduhome"></a>
+                        </div>
+                        <p>La motivación es lo que te pone en marcha, el hábito es lo que hace que sigas (Jim Ryun)</p>
+                        <div class="footer-social">
+                            <ul>
+                                <li><a href="https://www.facebook.com/devitems/?ref=bookmarks"><i class="zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="https://www.pinterest.com/devitemsllc/"><i class="zmdi zmdi-pinterest"></i></a></li>
+                                <li><a href="#"><i class="zmdi zmdi-vimeo"></i></a></li>
+                                <li><a href="https://twitter.com/devitemsllc"><i class="zmdi zmdi-twitter"></i></a></li>
+                            </ul>    
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="single-widget">
+                        <h3>información</h3>
+                        <ul>
+                            <li><a href="#">Admisión</a></li>
+                            <li><a href="#">Calendario Académico</a></li>
+                            <li><a href="event.html">Eventos</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6 col-xs-12">
+                    <div class="single-widget">
+                        <h3>Enlaces útiles
+                        </h3>
+                        <ul>
+                            <li><a href="course.html">Nuestros Cursos</a></li>
+                            <li><a href="about.html">Acerca de nosotros</a></li>
+                            <li><a href="teacher.html">Profesores &amp; Facultad</a></li>
+                            <li><a href="#">teams &amp; Condiciones</a></li>
+                            <li><a href="event.html">Nuestros Eventos</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="single-widget">
+                        <h3>get in touch</h3>
+                        <p>Your address goes here, Street<br>City, Roadno 785 New York</p>
+                        <p>+880  548  986  898  87<br>+880  659  785  658  98</p>
+                        <p>info@eduhome.com<br>www.eduhome.com</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
+    </div>   
+    <div class="footer-bottom text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>Copyright © <a href="https://devitems.com/" target="_blank">Aula Virtual</a> 2021. Todos los derechos reservados.</p>
+                </div> 
+            </div>
+        </div>    
+    </div>
+</footer>
+<!-- Footer End -->
+
 {% endblock %}

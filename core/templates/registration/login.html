@@ -7,19 +7,41 @@ Login
 {% endblock %}
 
 {% block contenido %} <!-- este contenido es el que aparecera en el segmento con el mismo nombre 'contenido' -->
-<form action="" method="post">{% csrf_token %}
-    <h3>Iniciar sesión</h3>
-    {% if form.non_field_errors %}
-      <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
-    {% endif %}
-    <p>
-      <input type="text" name="username" autofocus maxlength="254" required
-        id="id_username" class="form-control" placeholder="Nombre de usuario"/>
-    </p>
-    <p>
-      <input type="password" name="password" required
-        id="id_password" class="form-control" placeholder="Contraseña"/>
-    </p>
-    <p><input type="submit" class="btn btn-primary btn-block" value="Acceder"></p>
-</form>
+<!-- Login start -->
+<div class="login-area pt-150 pb-150">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-center">
+              <div class="login">
+                  <div class="login-form-container">
+                      <div class="login-text">
+                          <h2>Ingreso al Aula</h2>
+                          {% if form.non_field_errors %}
+                          <span>Inicie sesión utilizando los detalles de la cuenta a continuación.</span>
+                          {% endif %}
+                      </div>
+                      <div class="login-form">
+                          <form action="#" method="post">{% csrf_token %}
+                            {% if form.non_field_errors %}
+    <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
+  {% endif %}
+                              <input type="text" name="username" placeholder="Nombre de usuario" id="id_username">
+                              <input type="password" name="password" placeholder="Contraseña" id="id_password">
+                              <div class="button-box">
+                                  <div class="login-toggle-btn">
+                                      <input type="checkbox" id="remember">
+                                      <label for="remember">Recordarme</label>
+                                      <a href="#">Olvidó su contraseña?</a>
+                                  </div>
+                                  <button type="submit" class="default-btn" value="Acceder">Acceder</button>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Login end --> 
 {% endblock %}
