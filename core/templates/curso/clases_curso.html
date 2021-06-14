@@ -7,23 +7,34 @@
 {% block contenido %} <!-- este contenido es el que aparecera en el segmento con el mismo nombre 'contenido' -->
 
 {% if user.is_authenticated %}
-<nav>
+<section class="page-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0" href="{% url 'crear_clase' %}">PERSONALIZACIÓN DE CURSOS Y CLASES</h2>
+                <hr class="divider" />
+                <p class="text-muted mb-5">Estimado docente, en esta plataforma podrá modificar y editar sus cursos y clases</p>
+            
     <a href="{% url 'crear_clase' %}">Añadir clase</a>
-</nav>
-
-{% endif %}
+    {% endif %}
 <h1>{{ curso }} </h1><!-- este es el objeto curso renderizado desde la vista-->
 
 Clases:
 
 {% for clase in clases %}
-    <h2>{{ clase.titulo }}</h2>
+<section class="page-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+    <h2 class="mt-0">{{ clase.titulo }}</h2>
     <p>{{clase.descripcion}}</p>
     <p>{{clase.updated}}</p>
 
     <a href="{% url 'editar_clase' clase.IdClase %}">Editar clase</a>
     <a href="{% url 'eliminar_clase' clase.IdClase %}">Eliminar clase</a>
-
+</div>
+</div>
+</section>
 {% endfor %}
 
 {% endblock %}
