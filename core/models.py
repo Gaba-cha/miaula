@@ -15,5 +15,6 @@ class User(AbstractUser):
     tipo_usuario= models.CharField(max_length=2, choices=TIPO_DE_USUARIO_CHOICES, default='AD')
     especialidad= models.CharField(max_length=20, blank=True, null=True)
 
+
     def getTipoUsuario(self):
         return self.tipo_usuario

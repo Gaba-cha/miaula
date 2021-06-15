@@ -1,4 +1,5 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block title %}
 {{curso.nombre }}
@@ -6,35 +7,178 @@
 
 {% block contenido %} <!-- este contenido es el que aparecera en el segmento con el mismo nombre 'contenido' -->
 
-{% if user.is_authenticated %}
-<section class="page-section">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-lg-8 col-xl-6 text-center">
-                <h2 class="mt-0" href="{% url 'crear_clase' %}">PERSONALIZACIÓN DE CURSOS Y CLASES</h2>
-                <hr class="divider" />
-                <p class="text-muted mb-5">Estimado docente, en esta plataforma podrá modificar y editar sus cursos y clases</p>
-            
-    <a href="{% url 'crear_clase' %}">Añadir clase</a>
-    {% endif %}
-<h1>{{ curso }} </h1><!-- este es el objeto curso renderizado desde la vista-->
+  {% if user.is_authenticated %}
+  <div class="courses-area pt-150 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title">
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets8.lottiefiles.com/packages/lf20_rycdh53q.json"  background="transparent"  speed="1"  style="width: 1200px; height: 300px;"  loop  autoplay></lottie-player>
+                    
+                    <h2>CURSOS DISPONIBLES</h2>
+                    <hr class="divider" />
+                    <p>Estimado docente, en esta plataforma podrá modificar y editar sus cursos y clases</p>
+                    <a class="default-btn" href="{% url 'crear_clase' %}">Añadir clase</a>
+                     {% endif %}
+                     <hr class="divider" />
+                </div>
+            </div>
+        </div>
 
-Clases:
 
-{% for clase in clases %}
-<section class="page-section">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-lg-8 col-xl-6 text-center">
-    <h2 class="mt-0">{{ clase.titulo }}</h2>
-    <p>{{clase.descripcion}}</p>
-    <p>{{clase.updated}}</p>
 
-    <a href="{% url 'editar_clase' clase.IdClase %}">Editar clase</a>
-    <a href="{% url 'eliminar_clase' clase.IdClase %}">Eliminar clase</a>
+        
+        <div class="row">
+            {% for clase in clases %}
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="single-course">
+                    <div class="course-img">
+                       
+                    </div>
+                    <div class="course-content">
+                        <h3>{{ clase.titulo }}</a></h3>
+                        <p>{{clase.descripcion}}</p>
+                        <p>{{clase.updated}}</p>
+                        <a class="default-btn" href="{% url 'editar_clase' clase.IdClase %}">Editar clase</a>
+                        <a class="default-btn" href="{% url 'eliminar_clase' clase.IdClase %}">Eliminar clase</a>
+                    </div>   
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="single-course">
+                    <div class="course-img">
+                        
+                    </div>
+                    <div class="course-content">
+                        <h3><a href="course-details.html">{{ clase.titulo }}</a></h3>
+                        <p>{{clase.descripcion}}</p>
+                        <p>{{clase.updated}}</p>
+                        <a class="default-btn" href="{% url 'editar_clase' clase.IdClase %}">Editar clase</a>
+                        <a class="default-btn" href="{% url 'eliminar_clase' clase.IdClase %}">Eliminar clase</a>
+                    </div>   
+                </div>
+            </div>
+            <div class="col-md-4 hidden-sm col-xs-12">
+                <div class="single-course">
+                    <div class="course-img">
+                        <a href="course-details.html">
+                            <div class="course-hover">
+                                <i class="fa fa-link"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="course-content">
+                        <h3><a href="course-details.html">{{ clase.titulo }}</a></h3>
+                        <p>{{clase.descripcion}}</p>
+                        <p>{{clase.updated}}</p>
+                        <a class="default-btn" href="{% url 'editar_clase' clase.IdClase %}">Editar clase</a>
+                        <a class="default-btn" href="{% url 'eliminar_clase' clase.IdClase %}">Eliminar clase</a>
+                    </div> 
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
+<!-- Courses Area End -->
+<!-- Subscribe Start -->
+<div class="subscribe-area pt-60 pb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="subscribe-content section-title text-center">
+                    <h2>Suscribase para mantenerse informado</h2>
+                    <p>recibirá todo el contenido sobre nuestros cursos, clases y calendarios en su correo electrónico </p>
+                </div>
+                <div class="newsletter-form mc_embed_signup">
+                    <form action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <div id="mc_embed_signup_scroll" class="mc-form"> 
+                            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Ingrese su dirección de correo electrónico" required>
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div class="mc-news" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
+                            <button id="mc-embedded-subscribe" class="default-btn" type="submit" name="subscribe"><span>Suscribirme</span></button> 
+                        </div>    
+                    </form>
+                    <!-- mailchimp-alerts Start -->
+                    <div class="mailchimp-alerts">
+                        <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                        <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+                        <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                    </div>
+                    <!-- mailchimp-alerts end -->
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-</section>
-{% endfor %}
+<!-- Subscribe End -->
+
+<!-- Footer Start -->
+<footer class="footer-area">
+    <div class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-widget pr-60">
+                        <div class="footer-logo pb-25">
+                            <a href="index.html"><img src="{% static 'img/logo/aula1.png' %}" alt="eduhome"></a>
+                        </div>
+                        <p>La motivación es lo que te pone en marcha, el hábito es lo que hace que sigas (Jim Ryun)</p>
+                        <div class="footer-social">
+                            <ul>
+                                <li><a href="https://www.facebook.com/devitems/?ref=bookmarks"><i class="zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="https://www.pinterest.com/devitemsllc/"><i class="zmdi zmdi-pinterest"></i></a></li>
+                                <li><a href="#"><i class="zmdi zmdi-vimeo"></i></a></li>
+                                <li><a href="https://twitter.com/devitemsllc"><i class="zmdi zmdi-twitter"></i></a></li>
+                            </ul>    
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="single-widget">
+                        <h3>información</h3>
+                        <ul>
+                            <li><a href="#">Admisión</a></li>
+                            <li><a href="#">Calendario Académico</a></li>
+                            <li><a href="event.html">Eventos</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6 col-xs-12">
+                    <div class="single-widget">
+                        <h3>Enlaces útiles
+                        </h3>
+                        <ul>
+                            <li><a href="course.html">Nuestros Cursos</a></li>
+                            <li><a href="about.html">Acerca de nosotros</a></li>
+                            <li><a href="teacher.html">Profesores &amp; Facultad</a></li>
+                            <li><a href="#">teams &amp; Condiciones</a></li>
+                            <li><a href="event.html">Nuestros Eventos</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="single-widget">
+                        <h3>Estemos en contacto</h3>
+                        <p>isaac.jara05@inacapmail.cl, Macul<br>Santiago, Chile</p>
+                        <p>+880  548  986  898  87<br>+880  659  785  658  98</p>
+                        <p>isaac.jara05@inacapmail.cl<br>www.aulavirtual.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+    <div class="footer-bottom text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>Copyright © <a href="https://devitems.com/" target="_blank">Aula Virtual</a> 2021. Todos los derechos reservados.</p>
+                </div> 
+            </div>
+        </div>    
+    </div>
+</footer>
+<!-- Footer End -->
 
 {% endblock %}
